@@ -1,0 +1,36 @@
+<mvc:View controllerName="guiascotizador.guiascotizador.controller.Cotizador"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:sfb="sap.ui.comp.smartfilterbar"
+    xmlns:st="sap.ui.comp.smarttable">
+    <Page id="page" title="{i18n>title}">
+        <f:DynamicPage id="dynamicPage" fitContent="true">
+            <f:header>
+                <f:DynamicPageHeader>
+                    <sfb:SmartFilterBar
+                        id="smartFilterBar"
+                        entitySet="MainEntitySet"
+                        enableBasicSearch="true"
+                        basicSearchFieldName="CompanyCode"
+                        persistencyKey="UniqueAndStablePersistencyKey">
+                        <sfb:customData>
+                        </sfb:customData>
+                    </sfb:SmartFilterBar>
+                </f:DynamicPageHeader>
+            </f:header>
+            <f:content>
+                <st:SmartTable
+                    id="smartTable"
+                    entitySet="MainEntitySet"
+                    smartFilterId="smartFilterBar"
+                    tableType="Table"
+                    enableAutoColumnWidth="true"
+                    useTablePersonalisation="true"
+                    header="Customer orders"
+                    showRowCount="true">
+                </st:SmartTable>
+            </f:content>
+        </f:DynamicPage>
+    </Page>
+</mvc:View>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".2/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZCDS_COTIZACIONESH_CDS" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZCDS_COTIZACIONESHType" sap:label="Entregas - Guias de paquetería" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Entrega"/>
+                    <PropertyRef Name="Fecha_crecion"/>
+                    <PropertyRef Name="Centro_Origen"/>
+                    <PropertyRef Name="Clase"/>
+                    <PropertyRef Name="Documento_compras"/>
+                </Key>
+                <Property Name="Entrega" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Entrega"/>
+                <Property Name="Fecha_crecion" Type="Edm.DateTime" Nullable="false" Precision="0" sap:display-format="Date" sap:label="Fecha de creación del registro"/>
+                <Property Name="Centro_Origen" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro Origen" sap:quickinfo="Centro"/>
+                <Property Name="Clase" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Clase de documento de compras"/>
+                <Property Name="Documento_compras" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Documento compras" sap:quickinfo="Número del documento de compras"/>
+                <Property Name="Centro_Destino" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro Destino" sap:quickinfo="Centro receptor para entregas"/>
+                <Property Name="Peso_neto" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="P0B26512569CC24D4F86C29EDFA7464B3" sap:label="Peso neto"/>
+                <Property Name="Volumen" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="P0C97D7DDED89CFAC30019D6417A1195D" sap:label="Volumen"/>
+                <Property Name="UC_proveedor_ID" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="UC_proveedor_ID" sap:quickinfo="Número de cuenta del proveedor o acreedor"/>
+                <Property Name="UC_precio" Type="Edm.String" MaxLength="200" sap:display-format="UpperCase" sap:label="UC_precio" sap:quickinfo="totalAmnt"/>
+                <Property Name="Desc_Centro_Origen" Type="Edm.String" MaxLength="30" sap:label="Nombre 1" sap:quickinfo="Nombre"/>
+                <Property Name="CP_Origen" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Código postal"/>
+                <Property Name="Desc_Centro_Destino" Type="Edm.String" MaxLength="30" sap:label="Nombre 1" sap:quickinfo="Nombre"/>
+                <Property Name="CP_Destino" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Código postal"/>
+                <Property Name="UC_proveedor" Type="Edm.String" MaxLength="200" sap:display-format="UpperCase" sap:label="Paqueteria"/>
+            </EntityType>
+            <EntityContainer Name="ZCDS_COTIZACIONESH_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZCDS_COTIZACIONESH" EntityType="ZCDS_COTIZACIONESH_CDS.ZCDS_COTIZACIONESHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="ZCDS_COTIZACIONESH_CDS.ZCDS_COTIZACIONESH_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <atom:link rel="self" href="https://captd2.macropay.mx:44302/sap/opu/odata/sap/ZCDS_COTIZACIONESH_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://captd2.macropay.mx:44302/sap/opu/odata/sap/ZCDS_COTIZACIONESH_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
